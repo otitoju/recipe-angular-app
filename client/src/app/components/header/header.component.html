@@ -1,15 +1,18 @@
 <nav class="navbar navbar-expand-lg bg-dark navbar-dark py-3">
     <div class="container">
-        <a href="#" routerLink="/" routerLinkActive="active" class="navbar-brand">Recipe</a>
+        <a href="#" routerLink="/" routerLinkActive="active" class="navbar-brand">{{logo}}</a>
         <!-- hambuger button -->
         <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-target="#navmenu">
             <span class="navbar-toggler-icon"></span>
         </button>
 
         <div class="collapse navbar-collapse" id="navmenu">
-            <div class="d-flex ms-auto">
-                <app-button btnclass="btn btn-outline-success me-2" text="Login" routerLink="/login" routerLinkActive="active"></app-button>
-                <app-button btnclass="btn btn-outline-primary me-2" text="Signup" routerLink="/register" routerLinkActive="active"></app-button>
+            <div class="d-flex ms-auto" *ngIf="!isLoggedIn">
+                <app-button *ngFor="let button of buttons" btnclass={{button.class}} text={{button.btnName}} routerLink={{button.link}}></app-button>
+            </div>
+
+            <div class="d-flex ms-auto" *ngIf="isLoggedIn">
+                <app-button (click)="logOut()" btnclass="btn btn-outline-danger me-2" text="Logout"></app-button>
             </div>
         </div>
     </div>

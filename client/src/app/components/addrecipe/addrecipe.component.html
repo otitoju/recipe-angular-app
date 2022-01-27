@@ -1,0 +1,26 @@
+<section class="p-5">
+    <div class="container">
+        <h1 class="mb-3 text-center">Add Recipe</h1>
+        <form action="" (ngSubmit) = "handleAddRecipe()" >
+            <label for="content" class="form-label">Title</label>
+            <div class="form-group mb-3">
+                <input class="form-control" [(ngModel)]="name" type="text" name="name" id="">
+            </div>
+
+            <div class="form-group mb-3">
+                <label for="content" class="form-label">Content</label>
+                <textarea class="form-control" [(ngModel)]="content" name="content" id="" cols="30" rows="10"></textarea>
+            </div>
+
+            <div class="form-group mb-3">
+                <label for="" class="form-label">Select image</label>
+                <input type="file" [(ngModel)]="phot" src="" class="form-control" alt="">
+            </div>
+
+            <div class="text-left">
+                <app-button btnclass="btn btn-outline-primary btn-lg" text="Post"></app-button>
+            </div>
+
+        </form>
+    </div>
+</section>

@@ -1,15 +1,22 @@
 <section class="p-5">
       <div class="container">
-        <h2 class="text-center mb-3">Our Popular Recipes</h2>
+        <h2 class="text-center pb-3 mb-3">Our Popular Recipes</h2>
 
         <div class="row g-4">
             <div *ngFor="let recipe of recipes" class="col-md-6 col-lg-4">
-                <div class="card bg-light text-dark text-center">
+                <div class="card bg-light text-dark text-center h-100">
+                    <img  src={{recipe.phot}} alt="../../../assets/chinabox.svg" class=" mb-3 py-3 img-fluid w-50 d-block mx-auto"/>
                     <div class="card-body">
-                        <img src={{recipe.phot}} alt="" class=" mb-3 img-fluid w-50"/>
+                        <h3 class="card-title mb-3">{{recipe.name}}</h3>
+                        <p class="card-text mb-3">{{recipe.content}}</p>
+                        <div class="pb-3">
+                            <app-button text="view" (click)="getRecipe(recipe._id)" btnclass="btn btn-primary" routerLink="['/recipe',recipe._id]"></app-button>
+                        </div>
                     </div>
-                    <h3 class="card-title mb-3">{{recipe.name}}</h3>
-                    <p class="card-text mb-3">{{recipe.content}}</p>
+                    <div class="card-footer">
+                        <small class="text-muted">Last updated 3 mins ago</small>
+                        <p class="alert alert-danger" *ngIf="!isLoggedIn">Please signin to your account.</p>
+                    </div>
                 </div>
             </div>  
         </div>

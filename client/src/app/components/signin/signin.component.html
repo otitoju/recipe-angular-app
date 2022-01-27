@@ -8,12 +8,36 @@
 
             <div class="col-md align-items-center justify-content-between">
                 <h2 class="text-center mb-4">Enter your login details</h2>
-                <form action="">
-                    <div class="mb-3">
-                        <input type="email" name="" placeholder="Email" id="" class="form-control"/>
+                <form action="" (ngSubmit) = "handleLogin()" class="needs-validation">
+                    <div class="form-group mb-3 has-error" [class.has-error]="">
+                        <input 
+                            type="email" 
+                            [(ngModel)] ="email" 
+                            name="email" 
+                            placeholder="Email" 
+                            id="email" 
+                            class="form-control"
+                            required
+                            minlength="2"
+                            maxlength="45"
+                        />
+                        <span *ngIf="hasError" class="help-block text-danger"> Error</span>
+                        <div class="valid-feedback">
+                            Looks good!
+                          </div>
                     </div>
-                    <div class="mb-3">
-                        <input type="password" name="" placeholder="Password" id="" class="form-control"/>
+
+                    <div class="form-group mb-3">
+                        <input 
+                            type="password" 
+                            [(ngModel)] ="password" 
+                            name="password" 
+                            placeholder="Password" 
+                            id="password"
+                            class="form-control"
+                            required
+                            minlength="5"
+                        />
                         <div class="form-text">We'll never share your email with anyone else.</div>
                     </div>
                     
@@ -23,3 +47,5 @@
         </div>
     </div>
 </section>
+
+

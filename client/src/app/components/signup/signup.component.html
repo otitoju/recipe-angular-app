@@ -8,16 +8,16 @@
 
             <div class="col-md align-items-center justify-content-between">
                 <h2 class="text-center mb-4">Register with us</h2>
-                <form action="">
+                <form action="" (ngSubmit) = "signUp()">
                     <div class="mb-3">
-                        <input type="text" name="" placeholder="Name" id="" class="form-control"/>
+                        <input type="text" [(ngModel)] ="name"  name="name" placeholder="Name" id="" class="form-control"/>
                     </div>
 
                     <div class="mb-3">
-                        <input type="email" name="" placeholder="Email" id="" class="form-control"/>
+                        <input type="email"[(ngModel)] ="email" name="email" placeholder="Email" id="" class="form-control"/>
                     </div>
                     <div class="mb-3">
-                        <input type="password" name="" placeholder="Password" id="" class="form-control"/>
+                        <input type="password" [(ngModel)] ="password"  name="password" placeholder="Password" id="" class="form-control"/>
                         <div class="form-text">We'll never share your details with anyone else.</div>
                     </div>
                     <app-button btnclass="btn btn-primary" text="Sign up"></app-button>

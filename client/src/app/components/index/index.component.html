@@ -1,16 +1,15 @@
 <section class="p-5 text-center text-sm-start">
     <div class="container">
         <div class="d-sm-flex align-items-center justify-content-between">
-            <div>
-                <h1>Become a <span class="text-warning">Food Expert.</span></h1>
-                <p class="lead my-4">
-                    “Owners of dogs will have noticed that, if you provide them with food and water and shelter and affection, they will think you are god. Whereas owners of cats are compelled to realize that, if you provide them with food and water and shelter and affection, they draw the conclusion that they are gods.”
+            <div *ngFor="let content of contents">
+                <h1>{{content.title1}} <span class="text-warning">{{content.title2}}</span></h1>
+                <p class={{content.class}}>
+                    {{content.cnt}}
                 </p>
-                <app-button btnclass="btn btn-primary btn-lg" text="Explore"></app-button>
+                <app-button btnclass={{content.btnClass}} text={{content.btnText}}></app-button>
             </div>
-            <img src="../../../assets/fast-food-menu.svg" class="img-fluid d-none d-sm-block w-50" alt="img"/>
+            <img src={{indexImage}} class="img-fluid w-50" alt="img"/>
         </div>
     </div>
 </section>
 <app-recipes></app-recipes>
-

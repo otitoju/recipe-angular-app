@@ -29,7 +29,7 @@ class UserController {
 
  static async registerUser(req, res) {
      try {
-         if(!req.body.name && !req.body.email && !req.body.password) {
+         if(!req.body.name || !req.body.email || !req.body.password) {
              return res.json({
                  message: "Please fill in all fields"
              });

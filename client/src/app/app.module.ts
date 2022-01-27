@@ -16,6 +16,7 @@ import { SignupComponent } from './components/signup/signup.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { RecipesComponent } from './components/recipes/recipes.component';
 import { RecipeComponent } from './components/recipe/recipe.component';
+import { AddrecipeComponent } from './components/addrecipe/addrecipe.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import { RecipeComponent } from './components/recipe/recipe.component';
     SignupComponent,
     DashboardComponent,
     RecipesComponent,
-    RecipeComponent
+    RecipeComponent,
+    AddrecipeComponent
   ],
   imports: [
     BrowserModule,

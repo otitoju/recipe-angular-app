@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { IndexService } from 'src/app/index.service';
 
 @Component({
   selector: 'app-index',
@@ -6,10 +7,22 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./index.component.css']
 })
 export class IndexComponent implements OnInit {
+  indexImage: string = ""
+  contents: any[] = []
 
-  constructor() { }
+  constructor(private service: IndexService) { }
 
   ngOnInit(): void {
+    this.getIndexImage()
+    this.getContent()
+  }
+
+  getIndexImage() {
+    this.indexImage = this.service.handleIndexImage()
+  }
+
+  getContent() {
+    this.contents = this.service.handleContent()
   }
 
 }

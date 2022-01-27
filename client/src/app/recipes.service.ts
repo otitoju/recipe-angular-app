@@ -15,12 +15,21 @@ const HttpOptions = {
 })
 
 export class RecipesService {
-    private apiUrl = 'http://localhost:8000/api/v1/recipes'
+    private apiUrl = 'http://localhost:8000/api/v1'
+    
     constructor(private http: HttpClient) {
 
     }
     getRecipes(): Observable<Recipe[]> {
-        return this.http.get<Recipe[]>(this.apiUrl);
+        return this.http.get<Recipe[]>(`${this.apiUrl}/recipes`);
+    }
+
+    getRecipe(id:any): Observable<Recipe> {
+        return this.http.get<Recipe>(`${this.apiUrl}/recipe/${id}`);
+    }
+
+    addRecipe(name:string, content:string, phot:string): Observable<Recipe> {
+        return this.http.post<Recipe>(`${this.apiUrl}/recipe`, {name, content, phot}, HttpOptions)
     }
 }
 
